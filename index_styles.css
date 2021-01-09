@@ -1,0 +1,18 @@
+body {
+    background-image: url('Fbla_icon.png');
+    background-size: 80vw 88vh;
+    background-repeat: no-repeat;
+    background-position-y: 11vh;
+    background-color: white;
+    background-position-x: 10vw;
+}
+
+.text {
+    margin-left: 2.5vw;
+    margin-top: 1vh;
+
+}
+
+#take_the_test {
+    margin-left: 24.5vw;
+}
