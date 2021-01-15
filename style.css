@@ -16,10 +16,6 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-#mainnavbar{
-  position: fixed;
-}
-
 .container{
     max-width: 70rem;
     padding: 0 2rem;
@@ -403,7 +399,10 @@ ul{
 .card__link:hover {
   text-decoration: underline;
 }
- #test2{
+
+#test2{
     margin-top: 10vh;
     size: 1vw;
  }
+
+
