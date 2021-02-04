@@ -1,7 +1,0 @@
-let Question = class
-{
-    constructor ()
-    {
-
-    }
-}

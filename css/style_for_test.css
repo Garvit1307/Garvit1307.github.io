@@ -74,9 +74,11 @@ header:after{
 
 .sky{
     position: absolute;
-    width: 2100px;
-    bottom: 250px;
+    width: 100vw;
+    height: 100vh;
     right: 0;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 
 nav{
@@ -145,7 +147,6 @@ nav .container{
 .big-title{
     position: absolute;
     z-index: 30;
-    line-height: 4rem;
     top: calc(50% - 2rem);
     width: 100%;
     text-align: center;
@@ -156,14 +157,14 @@ nav .container{
 
 section{
     width: 100%;
-    background-color: #ffffff;
+    background-color: #151515;
     position: relative;
 }
 
 section .container{
     padding: 3rem;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-content: center;
     min-height: 100vh;
