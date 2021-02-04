@@ -1,4 +1,7 @@
-class Question
+let Question = class
 {
-    var correctAnswer;
+    constructor ()
+    {
+
+    }
 }
