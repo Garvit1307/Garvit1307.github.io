@@ -58,5 +58,10 @@ function nextQuestion(){
 }
 
 function previousQuestion(){
-    
+
+}
+var dropdownOptions = [document.getElementById("dropdownOptionOne"), document.getElementById("dropdownOptionTwo"), document.getElementById("dropdownOptionThree")];
+var dropdownMainText = document.getElementById("dropdownMainText");
+function dropdownOptionClicked(index){
+    dropdownMainText.innerHTML = dropdownOptions[index].innerHTML;
 }

@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home - Kavin Sivasubramanian</title>
+    <title>Test - Kavin Sivasubramanian</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style_for_test.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
@@ -25,14 +26,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link " href="Home.html" style="color: white;">Home. <span
+                        <a class="nav-link " href="Home.html" style="color: white;">Home <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="Study.html" style="color: white;">Study. </a>
+                        <a class="nav-link " href="Study.html" style="color: white;">Study </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled " href="TakeTheTest.html" style="color: white;">Take the Test.
+                        <a class="nav-link disabled " href="TakeTheTest.html" style="color: white;">Take the Test
                         </a>
                     </li>
                 </ul>
@@ -43,21 +44,130 @@
             </div>
         </nav>
         <div class="big-title translate" data-speed="0.1">
-            <p id = "timerText"style="font-size: 1.5vw; font-weight: bold; -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+            <p id="timerText" style="font-size: 1.5vw; font-weight: bold; -webkit-text-fill-color: white; /* Will override color (regardless of order) */
         -webkit-text-stroke-width: 0.5px;
         -webkit-text-stroke-color: black;
-        margin-top: -39vh">00:00</p>
-            <a href="TakeTheTest.html">
-                <button type="button" class="btn btn-dark" style="position: absolute; bottom: -53vh; left: 1vw;" onclick="previousQuestion();">Back</button>
-            </a>
-            <a href="TakeTheTest.html">
-                <button type="button" style="position: absolute; bottom: -53vh; right: 1vw;" class="btn btn-dark" onclick="nextQuestion();">Next</button>
-            </a>
+        margin-top: -39vh">00:00:00</p>
+
+            <h1 id="questionText" style="font-size: 6vw; font-weight: bold; -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+                    -webkit-text-stroke-width: 0.5px;
+                    -webkit-text-stroke-color: black;
+                    margin-top: 2vh">Question Here lol
+            </h1>
+        </div>
+        <div id="MCQOptions">
+            <div class="MCQOption">
+                <input id="optionOne" type="radio" name="MCQOptions">
+                <label for="optionOne">Radio</label>
+            </div>
+            <div class="MCQOption">
+                <input id="optionTwo" type="radio" name="MCQOptions">
+                <label for="optionTwo">Radio</label>
+            </div>
+            <div class="MCQOption">
+                <input id="optionThree" type="radio" name="MCQOptions">
+                <label for="optionThree">Radio</label>
+            </div>
+            <div class="MCQOption">
+                <input id="optionFour" type="radio" name="MCQOptions">
+                <label for="optionFour">Radio</label>
+            </div>
+        </div>
+        <div id="TFOptions">
+            <div class="TFOption">
+                <input id="True" type="radio" name="TFOptions">
+                <label for="True">True</label>
+            </div>
+            <div class="TFOption">
+                <input id="False" type="radio" name="TFOptions">
+                <label for="False">False</label>
+            </div>
+        </div>
+        <div class="w3-dropdown-hover dropdown">
+            <button id="dropdownMainText" class="w3-button">- Please Select -</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <a id="dropdownOptionOne" href="#" style="text-decoration: none;" onclick="dropdownOptionClicked(0)" class="w3-bar-item w3-button">Link 1</a>
+                <a id="dropdownOptionTwo"href="#" style="text-decoration: none;" onclick="dropdownOptionClicked(1)" class="w3-bar-item w3-button">Link 2</a>
+                <a id="dropdownOptionThree"href="#" style="text-decoration: none;" onclick="dropdownOptionClicked(2)" class="w3-bar-item w3-button">Link 3</a>
+            </div>
+        </div>
+        </div>
+
         </div>
         <img src="img/beach.jpg" class="sky translate" data-speed="0.5" alt="">
     </header>
 
     <script src="js/js_for_test.js"></script>
 </body>
+
+<style>
+    #MCQOptions {
+        /**/
+
+
+        visibility: hidden;
+
+
+        /**/
+        position: absolute;
+        user-select: none;
+        top: 35vh;
+        left: 35vw;
+        z-index: 30;
+    }
+
+    .MCQOption {
+        background-color: white;
+        border-radius: 1vw;
+        border-width: 0.5vw;
+        border-color: lightgray;
+        border-style: solid;
+        width: 30vw;
+        margin-top: 2vh;
+    }
+
+    input[type=radio] {
+        vertical-align: middle;
+        margin-left: 0.5vw;
+    }
+
+    label {
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+
+    #TFOptions {
+        /**/
+
+
+        visibility: hidden;
+
+
+        /**/
+        position: absolute;
+        user-select: none;
+        top: 35vh;
+        left: 35vw;
+        z-index: 30;
+    }
+
+    .TFOption {
+        background-color: white;
+        border-radius: 1vw;
+        border-width: 0.5vw;
+        border-color: lightgray;
+        border-style: solid;
+        width: 30vw;
+        margin-top: 2vh;
+    }
+
+    .dropdown {
+        z-index: 31;
+        position: absolute;
+        margin-top: 25%;
+        margin-left: 46%;
+        background-color: white;
+    }
+</style>
 
 </html>
