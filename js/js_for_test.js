@@ -58,16 +58,35 @@ var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MATCH"];
 
 var currentQuestion = 0;
 
-function loadQuestion(questionIndex){
+function loadQuestion(questionIndex) {
 
+    if (currentQuestion == questionSequence.length - 1) {
+        changeNextButtonText("Sumbit");
+    }
 }
 
-function nextQuestion(){
+var nextButton = document.getElementById("nextButton");
+
+function changeNextButtonText(toWht) {
+    if (toWht == "Submit") {
+
+        nextButton.innerHTML = "Submit";
+        nextButton.onclick = submit();
+    }
+
+    if (toWht == "Next") {
+
+        nextButton.innerHTML = "Next";
+        nextButton.onclick = nextQuestion();
+    }
+}
+
+function nextQuestion() {
     currentQuestion++;
     loadQuestion(currentQuestion);
 }
 
-function previousQuestion(){
+function previousQuestion() {
     currentQuestion--;
     loadQuestion(currentQuestion);
 }
@@ -75,6 +94,10 @@ function previousQuestion(){
 var dropdownOptions = [document.getElementById("dropdownOptionOne"), document.getElementById("dropdownOptionTwo"), document.getElementById("dropdownOptionThree")];
 var dropdownMainText = document.getElementById("dropdownMainText");
 
-function dropdownOptionClicked(index){
+function dropdownOptionClicked(index) {
     dropdownMainText.innerHTML = dropdownOptions[index].innerHTML;
+}
+
+function submit() {
+
 }
