@@ -9,6 +9,7 @@ window.onload = Start();
 
 function Start() {
     myTimer = window.setInterval(function () { Tick(); }, 1000);
+
 }
 
 function Tick() {
@@ -53,15 +54,27 @@ function Tick() {
     timerText.innerHTML = textToShow;
 }
 
-function nextQuestion(){
+var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MATCH"];
 
+var currentQuestion = 0;
+
+function loadQuestion(questionIndex){
+
+}
+
+function nextQuestion(){
+    currentQuestion++;
+    loadQuestion(currentQuestion);
 }
 
 function previousQuestion(){
-
+    currentQuestion--;
+    loadQuestion(currentQuestion);
 }
+
 var dropdownOptions = [document.getElementById("dropdownOptionOne"), document.getElementById("dropdownOptionTwo"), document.getElementById("dropdownOptionThree")];
 var dropdownMainText = document.getElementById("dropdownMainText");
+
 function dropdownOptionClicked(index){
     dropdownMainText.innerHTML = dropdownOptions[index].innerHTML;
 }
