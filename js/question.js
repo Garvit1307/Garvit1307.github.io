@@ -1,0 +1,4 @@
+class Question
+{
+    var correctAnswer;
+}
