@@ -10,6 +10,7 @@ window.onload = Start();
 
 function Start() {
     myTimer = window.setInterval(function () { Tick(); }, 1000);
+    pickRandomQuestions();
 }
 
 function Tick() {
@@ -63,6 +64,9 @@ function loadQuestion(questionIndex) {
     if (currentQuestion == questionSequence.length - 1) {
         changeNextButtonText("Sumbit");
     }
+    else {
+        changeNextButtonText("Next");
+    } 
 }
 
 var nextButton = document.getElementById("nextButton");
@@ -117,4 +121,32 @@ function submit() {
     }
 
     window.location.href = "Thanks.html";
+}
+
+var MCQQuestionOne = "";
+var MCQQuestionTwo = "";
+var TFQuestion = "";
+var FILLQuestion = "";
+var DROPQuestion = "";
+
+function pickRandomQuestions(){
+    // MCQ
+    while (true){
+        var MCQQuestionOneRandInt = Math.floor((Math.random() * questionsMCQ.length));
+        var MCQQuestionTwoRandInt = Math.floor((Math.random() * questionsMCQ.length));
+        console.log(questionsMCQ[MCQQuestionOneRandInt]);
+        console.log(questionsMCQ[MCQQuestionTwoRandInt]);
+        if (MCQQuestionOneRandInt != MCQQuestionTwoRandInt){
+            break;
+        }
+    }
+    // TF
+    var TFQuestionRandInt = Math.floor((Math.random() * questionsTF.length));
+
+    // FILL
+    var FILLQuestionRandInt = Math.floor((Math.random() * questionsFill.length));
+
+    // DROP
+    var DROPQuestionRandInt = Math.floor((Math.random() * questionsDropdown.length));
+
 }
