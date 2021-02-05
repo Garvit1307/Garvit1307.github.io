@@ -4,12 +4,12 @@ var minutesPassed = 0;
 var hoursPassed = 0;
 var timerText = document.getElementById("timerText");
 var textToShow = "";
+var correctQuestions = 0;
 
 window.onload = Start();
 
 function Start() {
     myTimer = window.setInterval(function () { Tick(); }, 1000);
-    startGame();
 }
 
 function Tick() {
@@ -54,7 +54,7 @@ function Tick() {
     timerText.innerHTML = textToShow;
 }
 
-var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MATCH"];
+var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MCQ"];
 
 var currentQuestion = 0;
 
@@ -99,5 +99,22 @@ function dropdownOptionClicked(index) {
 }
 
 function submit() {
+    sessionStorage.setItem("correctQuestions", correctQuestions);
+    sessionStorage.setItem("timeTaken", timerText.innerHTML);
+    
+    if (localStorage.getItem("highestScore") === null){
+        localStorage.setItem("highestScore", correctQuestions);
+    }
+    else if (correctQuestions > localStorage.getItem("highestScore")){
+        localStorage.setItem("highestScore", correctQuestions);
+    }
 
+    if (localStorage.getItem("bestTime") === null){
+        localStorage.setItem("bestTime", timerText.innerText);
+    }
+    else if (correctQuestions > localStorage.getItem("bestTime")){
+        localStorage.setItem("bestTime", timerText.innerText);
+    }
+
+    window.location.href = "Thanks.html";
 }
