@@ -9,7 +9,7 @@ window.onload = Start();
 
 function Start() {
     myTimer = window.setInterval(function () { Tick(); }, 1000);
-
+    startGame();
 }
 
 function Tick() {

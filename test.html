@@ -49,14 +49,19 @@
         -webkit-text-stroke-color: black;
         margin-top: -39vh">00:00:00</p>
 
-            <h1 id="questionText" style="font-size: 6vw; font-weight: bold; -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+            <h1 id="question" style="font-size: 6vw; font-weight: bold; -webkit-text-fill-color: white; /* Will override color (regardless of order) */
                     -webkit-text-stroke-width: 0.5px;
                     -webkit-text-stroke-color: black;
                     margin-top: 2vh">Question Here lol
             </h1>
-            <!-- NEXT AND PREVIOUS BUTTON HERE -->
+            <button id="next-btn"class ="btn btn-dark">
+                Next
+            </button>
+            <button id="prev-btn"class ="btn btn-dark">
+                Back
+            </button>
         </div>
-        <div id="MCQOptions">
+        <div id="MCQOptions answer-buttons">
             <div class="MCQOption">
                 <input id="optionOne" type="radio" name="MCQOptions">
                 <label for="optionOne">Radio</label>
@@ -88,23 +93,25 @@
             <button id="dropdownMainText" class="w3-button">- Please Select -</button>
             <div class="w3-dropdown-content w3-bar-block w3-border">
                 <a id="dropdownOptionOne" href="#" style="text-decoration: none;" onclick="dropdownOptionClicked(0)"
-                    class="w3-bar-item w3-button">Link 1</a>
+                    class="w3-bar-item w3-button">asbdasdsad</a>
                 <a id="dropdownOptionTwo" href="#" style="text-decoration: none;" onclick="dropdownOptionClicked(1)"
                     class="w3-bar-item w3-button">Link 2</a>
                 <a id="dropdownOptionThree" href="#" style="text-decoration: none;" onclick="dropdownOptionClicked(2)"
                     class="w3-bar-item w3-button">Link 3</a>
             </div>
-        </div id="fillInTheBlank">
-        <h2 id="fillInTheBlankFirstText">
-            First test
-        </h2>
-        <input id="fillInTheBlankBLANK" class="form-control" type="text" placeholder="Answer"
-            aria-label="default input example">
         </div>
-        <h2 id="fillInTheBlankSecondText">
-            Second test
-        </h2>
+        <div id="fillInTheBlank">
+            <h2 id="fillInTheBlankFirstText">
+                asgdasjkdhaskjhdasd
+            </h2>
+            <input id="fillInTheBlankBLANK" class="form-control" type="text" placeholder="Answer"
+                aria-label="default input example">
+            <h2 id="fillInTheBlankSecondText">
+                jkbasdjbasdjkasd
+            </h2>
         </div>
+
+
         <img src="img/beach.jpg" class="sky translate" data-speed="0.5" alt="">
     </header>
 
@@ -113,7 +120,7 @@
 
 <style>
     #MCQOptions {
-        /**/
+        /**
 
 
         visibility: hidden;
@@ -188,6 +195,11 @@
     }
 
     #fillInTheBlank {
+        /**/
+
+        visibility: hidden;
+
+        /**/
         position: absolute;
         z-index: 31;
     }
@@ -223,6 +235,15 @@
         z-index: 31;
         margin-left: 45vw;
         width: 10vw;
+    }
+
+    #next-btn{
+        margin-bottom: -115vh;
+        margin-right: -93vw;
+    }
+
+    #prev-btn{
+        margin-bottom: -115vh;
     }
 </style>
 
