@@ -17,7 +17,7 @@ var FILLQuestion;
 var DROPQuestion;
 var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MCQ1"];
 
-var dropdownOptions = [document.getElementById("dropdownOptionOne"), document.getElementById("dropdownOptionTwo"), document.getElementById("dropdownOptionThree")];
+var dropdownOptions = [document.getElementById("dropdownOptionOne"), document.getElementById("dropdownOptionTwo")];
 var dropdownMainText = document.getElementById("dropdownMainText");
 var currentQuestion = 0;
 
@@ -113,7 +113,8 @@ function loadQuestion(questionIndex) {
         fillInTheBlank.style.visibility = "hidden";
         dropdown.style.visibility = "visible";
         questionText.innerHTML = DROPQuestion["question"];
-
+        dropdownOptions[0].innerHTML = DROPQuestion["answers"][0]["text"];
+        dropdownOptions[1].innerHTML = DROPQuestion["answers"][1]["text"];
     }
 
     if (questionSequence[questionIndex] == "FILL") {
