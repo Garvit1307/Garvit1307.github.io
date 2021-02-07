@@ -10,7 +10,6 @@ const opacity = document.querySelectorAll(".opacity");
 const border = document.querySelector(".border");
 
 let header_height = header.offsetHeight;
-let section_height = section.offsetHeight;
 
 window.addEventListener('scroll', () => {
     let scroll = window.pageYOffset;

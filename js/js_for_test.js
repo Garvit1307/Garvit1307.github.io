@@ -21,6 +21,15 @@ var dropdownOptions = [document.getElementById("dropdownOptionOne"), document.ge
 var dropdownMainText = document.getElementById("dropdownMainText");
 var currentQuestion = 0;
 
+var optionOneLabel = document.getElementById("optionOneLabel");
+var optionTwoLabel = document.getElementById("optionTwoLabel");
+var optionThreeLabel = document.getElementById("optionThreeLabel");
+var optionFourLabel = document.getElementById("optionFourLabel");
+
+var optionOne = document.getElementById("optionOne");
+var optionTwo = document.getElementById("optionTwo");
+var optionThree = document.getElementById("optionThree");
+var optionFour = document.getElementById("optionFour");
 
 window.onload = Start();
 
@@ -78,19 +87,16 @@ function loadQuestion(questionIndex) {
 
     var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MCQ1"];
 
-    if (questionIndex == 4) {
-        changeNextButtonText("Sumbit");
-    }
-    else {
-        changeNextButtonText("Next");
-    }
-
     if (questionSequence[questionIndex] == "MCQ") {
         dropdown.style.visibility = "hidden";
         TFOptions.style.visibility = "hidden";
         fillInTheBlank.style.visibility = "hidden";
         MCQOptions.style.visibility = "visible";
         questionText.innerHTML = MCQQuestionOne["question"];
+        optionOneLabel.innerHTML = MCQQuestionOne["answers"][0]["text"];
+        optionTwoLabel.innerHTML = MCQQuestionOne["answers"][1]["text"];
+        optionThreeLabel.innerHTML = MCQQuestionOne["answers"][2]["text"];
+        optionFourLabel.innerHTML = MCQQuestionOne["answers"][3]["text"];
     }
 
     if (questionSequence[questionIndex] == "TF") {
@@ -98,6 +104,7 @@ function loadQuestion(questionIndex) {
         MCQOptions.style.visibility = "hidden";
         fillInTheBlank.style.visibility = "hidden";
         TFOptions.style.visibility = "visible";
+        questionText.innerHTML = TFQuestion["question"];
     }
 
     if (questionSequence[questionIndex] == "DROP") {
@@ -105,6 +112,8 @@ function loadQuestion(questionIndex) {
         MCQOptions.style.visibility = "hidden";
         fillInTheBlank.style.visibility = "hidden";
         dropdown.style.visibility = "visible";
+        questionText.innerHTML = DROPQuestion["question"];
+
     }
 
     if (questionSequence[questionIndex] == "FILL") {
@@ -112,6 +121,8 @@ function loadQuestion(questionIndex) {
         MCQOptions.style.visibility = "hidden";
         TFOptions.style.visibility = "hidden";
         fillInTheBlank.style.visibility = "visible";
+        questionText.innerHTML = FILLQuestion["question"];
+
     }
 
     if (questionSequence[questionIndex] == "MCQ1") {
@@ -119,7 +130,15 @@ function loadQuestion(questionIndex) {
         TFOptions.style.visibility = "hidden";
         fillInTheBlank.style.visibility = "hidden";
         MCQOptions.style.visibility = "visible";
+        questionText.innerHTML = MCQQuestionTwo["question"];
+        optionOneLabel.innerHTML = MCQQuestionTwo["answers"][0]["text"];
+        optionTwoLabel.innerHTML = MCQQuestionTwo["answers"][1]["text"];
+        optionThreeLabel.innerHTML = MCQQuestionTwo["answers"][2]["text"];
+        optionFourLabel.innerHTML = MCQQuestionTwo["answers"][3]["text"];
+
     }
+
+    console.log("Loaded question " + questionIndex);
 
 }
 
@@ -127,27 +146,20 @@ function loadQuestion(questionIndex) {
 
 function changeNextButtonText(toWht) {
 
-    var nextButton = document.getElementById("nextButton");
-
-
-    if (toWht == "Submit") {
-
-        nextButton.innerHTML = "Submit";
-        nextButton.addEventListener("click", function () { submit(); });
-    }
-
-    if (toWht == "Next") {
-
-        nextButton.innerHTML = "Next";
-        nextButton.addEventListener("click", function () { nextQuestion(); });
-    }
 }
 
 
 function nextQuestion() {
+    
     checkQuestionAnswer();
     currentQuestion++;
     loadQuestion(currentQuestion);
+    if (currentQuestion == 4){
+        var nextButton = document.getElementById("nextButton");
+        nextButton.innerHTML = "Sumbit";
+        nextButton.removeEventListener("click", nextQuestion);
+        nextButton.addEventListener("click", function () { submit(); });
+    }
 }
 
 
