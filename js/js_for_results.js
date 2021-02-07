@@ -12,6 +12,8 @@ const border = document.querySelector(".border");
 let header_height = header.offsetHeight;
 let section_height = section.offsetHeight;
 
+window.onload = Start();
+
 window.addEventListener('scroll', () => {
     let scroll = window.pageYOffset;
     let sectionY = section.getBoundingClientRect();
@@ -25,3 +27,24 @@ window.addEventListener('scroll', () => {
         element.style.opacity = scroll / (sectionY.top + section_height);
     })
 })
+
+function Start(){
+    // sessionStorage.setItem("MCQQuestionOne", MCQQuestionOne);
+    // sessionStorage.setItem("MCQQuestionTwo", MCQQuestionTwo);
+    // sessionStorage.setItem("TFQuestion", TFQuestion);
+    // sessionStorage.setItem("DROPQuestion", DROPQuestion);
+    // sessionStorage.setItem("FILLQuestion", FILLQuestion);
+
+    // sessionStorage.setItem("MCQUserSelectedAnswerOne", MCQUserSelectedAnswerOne);
+    // sessionStorage.setItem("MCQUserSelectedAnswerTwo", MCQUserSelectedAnswerTwo);
+    // sessionStorage.setItem("TFUserSelectedAnswer", TFUserSelectedAnswer);
+    // sessionStorage.setItem("dropdownUserSelectedAnswer", dropdownUserSelectedAnswer);
+    // sessionStorage.setItem("MCQUserSelectedAnswerOne", FILL);
+
+    console.log(sessionStorage.getItem("MCQQuestionOne")["question"]);
+    console.log(sessionStorage.getItem("MCQQuestionTwo")["question"]);
+    console.log(sessionStorage.getItem("TFQuestion")["question"]);
+    console.log(sessionStorage.getItem("DROPQuestion")["question"]);
+    console.log(sessionStorage.getItem("FILLQuestion")["question"]);
+
+}

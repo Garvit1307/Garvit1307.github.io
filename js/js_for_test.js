@@ -16,6 +16,16 @@ var TFQuestion;
 var FILLQuestion;
 var DROPQuestion;
 var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MCQ1"];
+var dropdownUserSelectedAnswer;
+var MCQUserSelectedAnswerOne;
+var MCQUserSelectedAnswerTwo;
+var TFUserSelectedAnswer;
+
+var MCQQuestionOneRandInt;
+var MCQQuestionTwoRandInt;
+var TFQuestionRandInt;
+var FILLQuestionRandInt;
+var DROPQuestionRandInt;
 
 var dropdownOptions = [document.getElementById("dropdownOptionOne"), document.getElementById("dropdownOptionTwo")];
 var dropdownMainText = document.getElementById("dropdownMainText");
@@ -143,19 +153,47 @@ function loadQuestion(questionIndex) {
 
 }
 
-
-
-function changeNextButtonText(toWht) {
-
+function TFOptionClicked(val) {
+    TFUserSelectedAnswer = val;
 }
 
+function MCQOptionsClikced(index) {
+    if (currentQuestion == 0) {
+        if (index == 0) {
+            MCQUserSelectedAnswerOne = optionOne;
+        }
+        if (index == 1) {
+            MCQUserSelectedAnswerOne = optionTwo;
+        }
+        if (index == 2) {
+            MCQUserSelectedAnswerOne = optionThree;
+        }
+        if (index == 3) {
+            MCQUserSelectedAnswerOne = optionFour;
+        }
+    }
+    if (currentQuestion == 4) {
+        if (index == 0) {
+            MCQUserSelectedAnswerTwo = optionOne;
+        }
+        if (index == 1) {
+            MCQUserSelectedAnswerTwo = optionTwo;
+        }
+        if (index == 2) {
+            MCQUserSelectedAnswerTwo = optionThree;
+        }
+        if (index == 3) {
+            MCQUserSelectedAnswerTwo = optionFour;
+        }
+    }
+}
 
 function nextQuestion() {
-    
+
     checkQuestionAnswer();
     currentQuestion++;
     loadQuestion(currentQuestion);
-    if (currentQuestion == 4){
+    if (currentQuestion == 4) {
         var nextButton = document.getElementById("nextButton");
         nextButton.innerHTML = "Sumbit";
         nextButton.removeEventListener("click", nextQuestion);
@@ -164,8 +202,11 @@ function nextQuestion() {
 }
 
 
+
+
 function dropdownOptionClicked(index) {
     dropdownMainText.innerHTML = dropdownOptions[index].innerHTML;
+    dropdownUserSelectedAnswer = dropdownMainText.innerHTML;
 }
 
 function submit() {
@@ -186,15 +227,32 @@ function submit() {
         localStorage.setItem("bestTime", timerText.innerText);
     }
 
-    window.location.href = "Thanks.html";
-}
+    sessionStorage.setItem("MCQQuestionOne", MCQQuestionOneRandInt);
+    sessionStorage.setItem("MCQQuestionTwo", MCQQuestionTwoRandInt);
+    sessionStorage.setItem("TFQuestion", TFQuestionRandInt);
+    sessionStorage.setItem("DROPQuestion", DROPQuestionRandInt);
+    sessionStorage.setItem("FILLQuestion", FILLQuestionRandInt);
 
+    console.log(sessionStorage.getItem("MCQQuestionOne"));
+    console.log(sessionStorage.getItem("MCQQuestionTwo"));
+    console.log(sessionStorage.getItem("TFQuestion"));
+    console.log(sessionStorage.getItem("DROPQuestion"));
+    console.log(sessionStorage.getItem("FILLQuestion"));
+
+    sessionStorage.setItem("MCQUserSelectedAnswerOne", MCQUserSelectedAnswerOne);
+    sessionStorage.setItem("MCQUserSelectedAnswerTwo", MCQUserSelectedAnswerTwo);
+    sessionStorage.setItem("TFUserSelectedAnswer", TFUserSelectedAnswer);
+    sessionStorage.setItem("dropdownUserSelectedAnswer", dropdownUserSelectedAnswer);
+    // sessionStorage.setItem("MCQUserSelectedAnswerOne", FILL);
+
+    // window.location.href = "Thanks.html";
+}
 
 function pickRandomQuestions() {
     // MCQ
     while (true) {
-        var MCQQuestionOneRandInt = Math.floor((Math.random() * questionsMCQ.length));
-        var MCQQuestionTwoRandInt = Math.floor((Math.random() * questionsMCQ.length));
+        MCQQuestionOneRandInt = Math.floor((Math.random() * questionsMCQ.length));
+        MCQQuestionTwoRandInt = Math.floor((Math.random() * questionsMCQ.length));
         console.log(questionsMCQ[MCQQuestionOneRandInt]);
         console.log(questionsMCQ[MCQQuestionTwoRandInt]);
         if (MCQQuestionOneRandInt != MCQQuestionTwoRandInt) {
@@ -202,13 +260,13 @@ function pickRandomQuestions() {
         }
     }
     // TF
-    var TFQuestionRandInt = Math.floor((Math.random() * questionsTF.length));
+    TFQuestionRandInt = Math.floor((Math.random() * questionsTF.length));
 
     // FILL
-    var FILLQuestionRandInt = Math.floor((Math.random() * questionsFill.length));
+    FILLQuestionRandInt = Math.floor((Math.random() * questionsFill.length));
 
     // DROP
-    var DROPQuestionRandInt = Math.floor((Math.random() * questionsDropdown.length));
+    DROPQuestionRandInt = Math.floor((Math.random() * questionsDropdown.length));
 
     MCQQuestionOne = questionsMCQ[MCQQuestionOneRandInt];
     MCQQuestionTwo = questionsMCQ[MCQQuestionTwoRandInt];
