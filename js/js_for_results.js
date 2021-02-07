@@ -8,6 +8,19 @@ const section = document.querySelector("section");
 const image_container = document.querySelector(".imgContainer");
 const opacity = document.querySelectorAll(".opacity");
 const border = document.querySelector(".border");
+var MCQQuestionOne;
+var MCQQuestionTwo;
+var TFQuestion;
+var DROPQuestion;
+var FILLQuestion;
+
+var MCQAnswerOne;
+var MCQAnswerTwo;
+var TFAnswer;
+var DROPAnswer;
+var FILLAnswer;
+
+var correctQuestions = 0;
 
 let header_height = header.offsetHeight;
 let section_height = section.offsetHeight;
@@ -17,7 +30,7 @@ window.onload = Start();
 window.addEventListener('scroll', () => {
     let scroll = window.pageYOffset;
     let sectionY = section.getBoundingClientRect();
-    
+
     translate.forEach(element => {
         let speed = element.dataset.speed;
         element.style.transform = `translateY(${scroll * speed}px)`;
@@ -28,23 +41,69 @@ window.addEventListener('scroll', () => {
     })
 })
 
-function Start(){
-    // sessionStorage.setItem("MCQQuestionOne", MCQQuestionOne);
-    // sessionStorage.setItem("MCQQuestionTwo", MCQQuestionTwo);
-    // sessionStorage.setItem("TFQuestion", TFQuestion);
-    // sessionStorage.setItem("DROPQuestion", DROPQuestion);
-    // sessionStorage.setItem("FILLQuestion", FILLQuestion);
 
-    // sessionStorage.setItem("MCQUserSelectedAnswerOne", MCQUserSelectedAnswerOne);
-    // sessionStorage.setItem("MCQUserSelectedAnswerTwo", MCQUserSelectedAnswerTwo);
-    // sessionStorage.setItem("TFUserSelectedAnswer", TFUserSelectedAnswer);
-    // sessionStorage.setItem("dropdownUserSelectedAnswer", dropdownUserSelectedAnswer);
-    // sessionStorage.setItem("MCQUserSelectedAnswerOne", FILL);
+function Start() {
+    MCQQuestionOne = questionsMCQ[sessionStorage.getItem("MCQQuestionOne")];
+    MCQQuestionTwo = questionsMCQ[sessionStorage.getItem("MCQQuestionTwo")];
+    TFQuestion = questionsTF[sessionStorage.getItem("TFQuestion")];
+    DROPQuestion = questionsDropdown[sessionStorage.getItem("DROPQuestion")];
+    FILLQuestion = questionsFill[sessionStorage.getItem("FILLQuestion")];
 
-    console.log(sessionStorage.getItem("MCQQuestionOne")["question"]);
-    console.log(sessionStorage.getItem("MCQQuestionTwo")["question"]);
-    console.log(sessionStorage.getItem("TFQuestion")["question"]);
-    console.log(sessionStorage.getItem("DROPQuestion")["question"]);
-    console.log(sessionStorage.getItem("FILLQuestion")["question"]);
+    MCQAnswerOne = sessionStorage.getItem("MCQUserSelectedAnswerOne");
+    MCQAnswerTwo = sessionStorage.getItem("MCQUserSelectedAnswerTwo");
+    TFAnswer = sessionStorage.getItem("TFUserSelectedAnswer");
+    DROPAnswer = sessionStorage.getItem("dropdownUserSelectedAnswer");
 
+    console.log("MCQ ONE ANSWER = " + MCQAnswerOne);
+    console.log("MCQ TWO ANSWER = " + MCQAnswerTwo);
+    console.log("TF ANSWER = " + TFAnswer);
+    console.log("DROP ANSWER = " + DROPAnswer);
+
+    if (MCQAnswerOne != -1) {
+        if (MCQQuestionOne['answers'][MCQAnswerOne]['correct']) {
+            console.log("MCQ IS CORRECT POGGG");
+            correctQuestions++;
+        }
+        else {
+            console.log("MCQ IS WRONG NOOOO")
+        }
+    }
+    else {
+        console.log("NO ANSWER FOR MCQ!!! WHY");
+    }
+    if (MCQAnswerTwo != -1) {
+        if (MCQQuestionTwo['answers'][MCQAnswerTwo]['correct']) {
+            console.log("MCQ2 IS CORRECT POGGG");
+            correctQuestions++;
+        }
+        else {
+            console.log("MCQ2 IS WRONG NOOOO")
+        }
+    }
+    else {
+        console.log("NO ANSWER FOR MCQ2!!! WHY");
+    }
+    if (TFAnswer != -1) {
+        if (TFQuestion['answers'][TFAnswer]['correct']) {
+            console.log("TF IS CORRECT POGGG");
+            correctQuestions++;
+        } else {
+            console.log("TF IS WRONG NOOOO")
+        }
+    }
+    else {
+        console.log("NO ANSWER FOR TF!!! WHY");
+    }
+    if (DROPAnswer != -1) {
+        if (DROPQuestion['answers'][DROPAnswer]['correct']) {
+            console.log("DROP IS CORRECT POGGG");
+            correctQuestions++;
+        }
+        else {
+            console.log("DROP IS WRONG NOOOO")
+        }
+    }
+    else {
+        console.log("NO ANSWER FOR DROP!!! WHY");
+    }
 }

@@ -16,10 +16,10 @@ var TFQuestion;
 var FILLQuestion;
 var DROPQuestion;
 var questionSequence = ["MCQ", "TF", "DROP", "FILL", "MCQ1"];
-var dropdownUserSelectedAnswer;
-var MCQUserSelectedAnswerOne;
-var MCQUserSelectedAnswerTwo;
-var TFUserSelectedAnswer;
+var dropdownUserSelectedAnswer = -1;
+var MCQUserSelectedAnswerOne = -1;
+var MCQUserSelectedAnswerTwo = -1;
+var TFUserSelectedAnswer = -1;
 
 var MCQQuestionOneRandInt;
 var MCQQuestionTwoRandInt;
@@ -159,38 +159,14 @@ function TFOptionClicked(val) {
 
 function MCQOptionsClikced(index) {
     if (currentQuestion == 0) {
-        if (index == 0) {
-            MCQUserSelectedAnswerOne = optionOne;
-        }
-        if (index == 1) {
-            MCQUserSelectedAnswerOne = optionTwo;
-        }
-        if (index == 2) {
-            MCQUserSelectedAnswerOne = optionThree;
-        }
-        if (index == 3) {
-            MCQUserSelectedAnswerOne = optionFour;
-        }
+        MCQUserSelectedAnswerOne = index;
     }
     if (currentQuestion == 4) {
-        if (index == 0) {
-            MCQUserSelectedAnswerTwo = optionOne;
-        }
-        if (index == 1) {
-            MCQUserSelectedAnswerTwo = optionTwo;
-        }
-        if (index == 2) {
-            MCQUserSelectedAnswerTwo = optionThree;
-        }
-        if (index == 3) {
-            MCQUserSelectedAnswerTwo = optionFour;
-        }
+        MCQUserSelectedAnswerTwo = index;
     }
 }
 
 function nextQuestion() {
-
-    checkQuestionAnswer();
     currentQuestion++;
     loadQuestion(currentQuestion);
     if (currentQuestion == 4) {
@@ -198,6 +174,7 @@ function nextQuestion() {
         nextButton.innerHTML = "Sumbit";
         nextButton.removeEventListener("click", nextQuestion);
         nextButton.addEventListener("click", function () { submit(); });
+        nextButton.style.marginLeft = "93vw";
     }
 }
 
@@ -206,7 +183,7 @@ function nextQuestion() {
 
 function dropdownOptionClicked(index) {
     dropdownMainText.innerHTML = dropdownOptions[index].innerHTML;
-    dropdownUserSelectedAnswer = dropdownMainText.innerHTML;
+    dropdownUserSelectedAnswer = index;
 }
 
 function submit() {
@@ -233,19 +210,14 @@ function submit() {
     sessionStorage.setItem("DROPQuestion", DROPQuestionRandInt);
     sessionStorage.setItem("FILLQuestion", FILLQuestionRandInt);
 
-    console.log(sessionStorage.getItem("MCQQuestionOne"));
-    console.log(sessionStorage.getItem("MCQQuestionTwo"));
-    console.log(sessionStorage.getItem("TFQuestion"));
-    console.log(sessionStorage.getItem("DROPQuestion"));
-    console.log(sessionStorage.getItem("FILLQuestion"));
-
     sessionStorage.setItem("MCQUserSelectedAnswerOne", MCQUserSelectedAnswerOne);
     sessionStorage.setItem("MCQUserSelectedAnswerTwo", MCQUserSelectedAnswerTwo);
     sessionStorage.setItem("TFUserSelectedAnswer", TFUserSelectedAnswer);
     sessionStorage.setItem("dropdownUserSelectedAnswer", dropdownUserSelectedAnswer);
+    console.log(sessionStorage.getItem("TFUserSelectedAnswer"));
     // sessionStorage.setItem("MCQUserSelectedAnswerOne", FILL);
 
-    // window.location.href = "Thanks.html";
+    window.location.href = "Thanks.html";
 }
 
 function pickRandomQuestions() {
@@ -273,8 +245,4 @@ function pickRandomQuestions() {
     TFQuestion = questionsTF[TFQuestionRandInt];
     FILLQuestion = questionsFill[FILLQuestionRandInt];
     DROPQuestion = questionsDropdown[DROPQuestionRandInt];
-}
-
-function checkQuestionAnswer() {
-
 }
