@@ -195,22 +195,7 @@ function dropdownOptionClicked(index) {
 }
 
 function submit() {
-    sessionStorage.setItem("correctQuestions", correctQuestions);
     sessionStorage.setItem("timeTaken", timerText.innerHTML);
-
-    if (localStorage.getItem("highestScore") === null) {
-        localStorage.setItem("highestScore", correctQuestions);
-    }
-    else if (correctQuestions > localStorage.getItem("highestScore")) {
-        localStorage.setItem("highestScore", correctQuestions);
-    }
-
-    if (localStorage.getItem("bestTime") === null) {
-        localStorage.setItem("bestTime", totalTimePassed);
-    }
-    else if (totalTimePassed < localStorage.getItem("bestTime")) {
-        localStorage.setItem("bestTime", totalTimePassed);
-    }
 
     sessionStorage.setItem("MCQQuestionOne", MCQQuestionOneRandInt);
     sessionStorage.setItem("MCQQuestionTwo", MCQQuestionTwoRandInt);

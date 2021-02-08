@@ -164,10 +164,16 @@ function Start() {
         console.log("NO ANSWER FOR FILL!!! WHY");
     }
 
+
+    if (localStorage.getItem("highestScore") == null || correctQuestions > localStorage.getItem("highestScore")){
+        localStorage.setItem("highestScore", correctQuestions);
+    }
+
+
     scoreText.innerHTML = "Your Score: " + correctQuestions * 20;
     timeText.innerHTML = "Time Taken: " + sessionStorage.getItem("timeTaken");
     bestTimeText.innerHTML = "Best Time: " + localStorage.getItem("bestTime");
-    bestScoreText.innerHTML = "Best Score: " + localStorage.getItem("highestScore");
+    bestScoreText.innerHTML = "Best Score: " + localStorage.getItem("highestScore") * 20;
     questionOneQueArea.innerHTML = MCQQuestionOne["question"];
 
 
