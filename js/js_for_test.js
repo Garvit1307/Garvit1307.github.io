@@ -214,7 +214,8 @@ function submit() {
     sessionStorage.setItem("MCQUserSelectedAnswerTwo", MCQUserSelectedAnswerTwo);
     sessionStorage.setItem("TFUserSelectedAnswer", TFUserSelectedAnswer);
     sessionStorage.setItem("dropdownUserSelectedAnswer", dropdownUserSelectedAnswer);
-    console.log(sessionStorage.getItem("TFUserSelectedAnswer"));
+    // console.log(sessionStorage.getItem("TFUserSelectedAnswer"));
+    // console.log(TFUserSelectedAnswer);
     // sessionStorage.setItem("MCQUserSelectedAnswerOne", FILL);
 
     window.location.href = "Thanks.html";

@@ -80,11 +80,11 @@
         </div>
         <div id="TFOptions">
             <div class="TFOption">
-                <input id="True" type="radio" name="TFOptions" onclick="">
+                <input id="True" type="radio" name="TFOptions" onclick="TFOptionClicked(0);">
                 <label for="True" onclick="TFOptionClicked(0);">True</label>
             </div>
             <div class="TFOption">
-                <input id="False" type="radio" name="TFOptions">
+                <input id="False" type="radio" name="TFOptions" onclick="TFOptionClicked(1);">
                 <label for="False" onclick="TFOptionClicked(1);">False</label>
             </div>
         </div>
@@ -98,14 +98,10 @@
             </div>
         </div>
         <div id="fillInTheBlank">
-            <h2 id="fillInTheBlankFirstText">
-                asgdasjkdhaskjhdasd
-            </h2>
+>
             <input id="fillInTheBlankBLANK" class="form-control" type="text" placeholder="Answer"
                 aria-label="default input example">
-            <h2 id="fillInTheBlankSecondText">
-                jkbasdjbasdjkasd
-            </h2>
+
         </div>
 
 
@@ -231,8 +227,8 @@
         position: absolute;
         margin-top: 45vh;
         z-index: 31;
-        margin-left: 45vw;
-        width: 10vw;
+        margin-left: 35vw;
+        width: 30vw;
     }
 
     #nextButton {

@@ -100,7 +100,7 @@ function Start() {
             correctQuestions++;
         }
         else {
-            console.log("DROP IS WRONG NOOOO")
+            console.log("DROP IS WRONG NOOOO");
         }
     }
     else {
