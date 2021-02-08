@@ -317,9 +317,7 @@ const questionsFill = [
   {
     question: 'Excluding the three division presidents, how many years is the term of office for National Board of Director members?',
     answers: [
-      { text: 'three', correct: true },
-      { text: '3', correct: true },
-      { text: 'idk yo', correct: false }
+      { text: 'three', correct: true }
 
     ]
   },
@@ -327,76 +325,60 @@ const questionsFill = [
     question: 'Who is the FBLA-PBL President and CEO - before 2019?',
     answers: [
       { text: 'Jean Buckley', correct: true },
-      { text: 'Fun Fun Function', correct: true }
     ]
   },
   {
     question: 'Who is the FBLA-PBL Communications Manager?',
     answers: [
-      { text: 'Kinda', correct: false },
       { text: 'George Mocharko', correct: true }
     ]
   },
   {
     question: 'What officer counts the votes and then records them during an election?',
     answers: [
-      { text: '6', correct: false },
       { text: 'Secretary', correct: true }
     ]
   },
   {
     question: 'In the officer installation ceremony, what color candle symbolized office of reporter?',
     answers: [
-      { text: 'Violet', correct: true },
-      { text: 'answerhsdblj', correct: true }
+      { text: 'Violet', correct: true }
     ]
   },
   {
     question: 'Who determines national dues?',
     answers: [
-      { text: 'National Board of Directors', correct: true },
-      { text: 'Traversy Media', correct: true },
-      { text: 'Dev Ed', correct: true },
-      { text: 'Fun Fun Function', correct: true }
+      { text: 'National Board of Directors', correct: true }
     ]
   },
   {
     question: 'Which month is National Education for Business month?',
     answers: [
-      { text: 'November', correct: true },
-      { text: 'Um no', correct: false },
-      { text: 'IDK', correct: false }
+      { text: 'November', correct: true }
     ]
   },
   {
     question: 'Which month is National Education for Business month?',
     answers: [
-      { text: '6', correct: false },
       { text: '1991', correct: true }
     ]
   },
   {
     question: 'Who needs to approve a new chapter application before it is forwarded to the National office?',
     answers: [
-      { text: 'State chairman', correct: true },
-      { text: 'answer', correct: true }
+      { text: 'State chairman', correct: true }
     ]
   },
   {
     question: 'How many administrative regions does National FBLA-PBL have?',
     answers: [
-      { text: 'Five', correct: true },
-      { text: 'Traversy Media', correct: true },
-      { text: 'Dev Ed', correct: true },
-      { text: 'Fun Fun Function', correct: true }
+      { text: 'Five', correct: true }
     ]
   },
   {
     question: 'What year did FBLA gain independent status?',
     answers: [
-      { text: '1969', correct: true },
-      { text: 'Um no', correct: false },
-      { text: 'IDK', correct: false }
+      { text: '1969', correct: true }
     ]
   },
   {
