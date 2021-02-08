@@ -96,6 +96,7 @@ function Start() {
     console.log("MCQ TWO ANSWER = " + MCQAnswerTwo);
     console.log("TF ANSWER = " + TFAnswer);
     console.log("DROP ANSWER = " + DROPAnswer);
+    console.log("FILL ANSWER = " + FILLAnswer);
 
     if (MCQAnswerOne != -1) {
         if (MCQQuestionOne['answers'][MCQAnswerOne]['correct']) {
@@ -164,7 +165,7 @@ function Start() {
     }
     questionOneQueArea.innerHTML = MCQQuestionOne["question"];
     if (MCQQuestionOne["answers"][MCQAnswerOne]){
-        questionOneYourAnswerArea.innerHTML = MCQQuestionOne["answers"][MCQAnswerOne];
+        questionOneYourAnswerArea.innerHTML += MCQQuestionOne["answers"][MCQAnswerOne]["text"];
     }
     else {
         questionOneYourAnswerArea.innerHTML += "NO ANSWER";
@@ -185,7 +186,7 @@ function Start() {
     }
     questionTwoQueArea.innerHTML = TFQuestion["question"];
     if (MCQQuestionOne["answers"][TFAnswer]){
-        questionTwoYourAnswerArea.innerHTML = TFQuestion["answers"][TFAnswer];
+        questionTwoYourAnswerArea.innerHTML += TFQuestion["answers"][TFAnswer]["text"];
     }
     else {
         questionTwoYourAnswerArea.innerHTML += "NO ANSWER";
@@ -205,7 +206,7 @@ function Start() {
     }
     questionThreeQueArea.innerHTML = DROPQuestion["question"];
     if (DROPQuestion["answers"][DROPAnswer]){
-        questionThreeYourAnswerArea.innerHTML = DROPQuestion["answers"][DROPAnswer];
+        questionThreeYourAnswerArea.innerHTML += DROPQuestion["answers"][DROPAnswer]["text"];
     }
     else {
         questionThreeYourAnswerArea.innerHTML += "NO ANSWER";
@@ -225,7 +226,7 @@ function Start() {
     }
     questionFourQueArea.innerHTML = FILLQuestion["question"];
     if (FILLQuestion["answers"][FILLAnswer]){
-        questionFourYourAnswerArea.innerHTML = FILLQuestion["answers"][FILLAnswer];
+        questionFourYourAnswerArea.innerHTML += FILLQuestion["answers"][FILLAnswer]["text"];
     }
     else {
         questionFourYourAnswerArea.innerHTML += "NO ANSWER";
@@ -245,7 +246,7 @@ function Start() {
     }
     questionFiveQueArea.innerHTML = MCQQuestionTwo["question"];
     if (MCQQuestionTwo["answers"][MCQAnswerTwo]){
-        questionFiveYourAnswerArea.innerHTML = MCQQuestionTwo["answers"][MCQAnswerTwo];
+        questionFiveYourAnswerArea.innerHTML += MCQQuestionTwo["answers"][MCQAnswerTwo]["text"];
     }
     else {
         questionFiveYourAnswerArea.innerHTML += "NO ANSWER";
