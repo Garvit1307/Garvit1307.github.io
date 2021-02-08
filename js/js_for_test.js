@@ -2,6 +2,7 @@ var myTimer = 0;
 var secondsPassed = 0;
 var minutesPassed = 0;
 var hoursPassed = 0;
+var totalTimePassed = 0;
 var timerText = document.getElementById("timerText");
 var textToShow = "";
 var correctQuestions = 0;
@@ -9,6 +10,7 @@ var MCQOptions = document.getElementById("MCQOptions");
 var dropdown = document.getElementById("dropdown");
 var TFOptions = document.getElementById("TFOptions");
 var fillInTheBlank = document.getElementById("fillInTheBlank");
+var fillInTheBlankBLANK = document.getElementById("fillInTheBlankBLANK");;
 var questionText = document.getElementById("question");
 var MCQQuestionOne;
 var MCQQuestionTwo;
@@ -20,6 +22,7 @@ var dropdownUserSelectedAnswer = -1;
 var MCQUserSelectedAnswerOne = -1;
 var MCQUserSelectedAnswerTwo = -1;
 var TFUserSelectedAnswer = -1;
+var FILLUserSelectedAnswer;
 
 var MCQQuestionOneRandInt;
 var MCQQuestionTwoRandInt;
@@ -54,6 +57,7 @@ function Tick() {
     textToShow = "";
 
     secondsPassed++;
+    totalTimePassed++;
 
     if (secondsPassed >= 60) {
         secondsPassed = 0;
@@ -176,6 +180,10 @@ function nextQuestion() {
         nextButton.addEventListener("click", function () { submit(); });
         nextButton.style.marginLeft = "93vw";
     }
+    optionOne.checked = false;
+    optionTwo.checked = false;
+    optionThree.checked = false;
+    optionFour.checked = false;
 }
 
 
@@ -198,10 +206,10 @@ function submit() {
     }
 
     if (localStorage.getItem("bestTime") === null) {
-        localStorage.setItem("bestTime", timerText.innerText);
+        localStorage.setItem("bestTime", totalTimePassed);
     }
-    else if (correctQuestions > localStorage.getItem("bestTime")) {
-        localStorage.setItem("bestTime", timerText.innerText);
+    else if (totalTimePassed < localStorage.getItem("bestTime")) {
+        localStorage.setItem("bestTime", totalTimePassed);
     }
 
     sessionStorage.setItem("MCQQuestionOne", MCQQuestionOneRandInt);
@@ -214,9 +222,8 @@ function submit() {
     sessionStorage.setItem("MCQUserSelectedAnswerTwo", MCQUserSelectedAnswerTwo);
     sessionStorage.setItem("TFUserSelectedAnswer", TFUserSelectedAnswer);
     sessionStorage.setItem("dropdownUserSelectedAnswer", dropdownUserSelectedAnswer);
-    // console.log(sessionStorage.getItem("TFUserSelectedAnswer"));
-    // console.log(TFUserSelectedAnswer);
-    // sessionStorage.setItem("MCQUserSelectedAnswerOne", FILL);
+    sessionStorage.setItem("FILLUserSelectedAnswer", fillInTheBlankBLANK.value);
+    console.log(sessionStorage.getItem("FILLUserSelectedAnswer"));
 
     window.location.href = "Thanks.html";
 }

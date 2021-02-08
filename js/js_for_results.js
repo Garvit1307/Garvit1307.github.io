@@ -8,6 +8,10 @@ const section = document.querySelector("section");
 const image_container = document.querySelector(".imgContainer");
 const opacity = document.querySelectorAll(".opacity");
 const border = document.querySelector(".border");
+var scoreText = document.getElementById("scoreText");
+var timeText = document.getElementById("timeText");
+var bestTimeText = document.getElementById("bestTimeText");
+var bestScoreText = document.getElementById("bestScoreText");
 var MCQQuestionOne;
 var MCQQuestionTwo;
 var TFQuestion;
@@ -106,4 +110,9 @@ function Start() {
     else {
         console.log("NO ANSWER FOR DROP!!! WHY");
     }
+
+    scoreText.innerHTML = "Your Score: " + correctQuestions * 20;
+    timeText.innerHTML = "Time Taken: " + sessionStorage.getItem("timeTaken");
+    bestTimeText.innerHTML = "Best Time: " + localStorage.getItem("bestTime");
+    bestScoreText.innerHTML = "Best Score: " + localStorage.getItem("highestScore");
 }
