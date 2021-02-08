@@ -80,8 +80,6 @@ window.addEventListener('scroll', () => {
 
 
 function Start() {
-    doc = new jsPDF();
-
     MCQQuestionOne = questionsMCQ[sessionStorage.getItem("MCQQuestionOne")];
     MCQQuestionTwo = questionsMCQ[sessionStorage.getItem("MCQQuestionTwo")];
     TFQuestion = questionsTF[sessionStorage.getItem("TFQuestion")];
@@ -150,6 +148,20 @@ function Start() {
     }
     else {
         console.log("NO ANSWER FOR DROP!!! WHY");
+    }
+
+    if (FILLAnswer != -1) {
+        if (FILLQuestion["answers"][0]["text"].toLowerCase().replace(" ", "") == FILLAnswer.toLowerCase().replace(" ", "")) {
+            console.log("FILL IS CORRECT POGGG");
+            FILLAnswerIsCorrect = true;
+            correctQuestions++;
+        }
+        else {
+            console.log("FILL IS WRONG NOOOO");
+        }
+    }
+    else {
+        console.log("NO ANSWER FOR FILL!!! WHY");
     }
 
     scoreText.innerHTML = "Your Score: " + correctQuestions * 20;
@@ -227,8 +239,8 @@ function Start() {
         questionFourNumberArea.innerHTML += "❌";
     }
     questionFourQueArea.innerHTML = FILLQuestion["question"];
-    if (FILLQuestion["answers"][FILLAnswer]) {
-        questionFourYourAnswerArea.innerHTML += FILLQuestion["answers"][FILLAnswer]["text"];
+    if (FILLAnswer != -1) {
+        questionFourYourAnswerArea.innerHTML += FILLAnswer;
     }
     else {
         questionFourYourAnswerArea.innerHTML += "NO ANSWER";
@@ -262,5 +274,13 @@ function Start() {
 }
 
 function download() {
+    generatePDF();
 }
-
+function generatePDF() {
+    // Choose the element that our invoice is rendered in.
+    const element = document.getElementById("content");
+    // Choose the element and save the PDF for our user.
+    html2pdf()
+      .from(element)
+      .save();
+  }

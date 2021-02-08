@@ -363,7 +363,6 @@ const questionsFill = [
   {
     question: 'Which month is National Education for Business month?',
     answers: [
-      { text: 'Kinda', correct: false },
       { text: 'November', correct: true },
       { text: 'Um no', correct: false },
       { text: 'IDK', correct: false }
@@ -395,7 +394,6 @@ const questionsFill = [
   {
     question: 'What year did FBLA gain independent status?',
     answers: [
-      { text: 'Kinda', correct: false },
       { text: '1969', correct: true },
       { text: 'Um no', correct: false },
       { text: 'IDK', correct: false }
@@ -404,7 +402,6 @@ const questionsFill = [
   {
     question: 'What year was FBLA-Middle Level division established at the national level?',
     answers: [
-      { text: '6', correct: false },
       { text: '1994', correct: true }
     ]
   }
