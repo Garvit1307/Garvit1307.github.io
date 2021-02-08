@@ -153,8 +153,6 @@ function loadQuestion(questionIndex) {
 
     }
 
-    console.log("Loaded question " + questionIndex);
-
 }
 
 function TFOptionClicked(val) {
@@ -218,7 +216,6 @@ function submit() {
     sessionStorage.setItem("TFUserSelectedAnswer", TFUserSelectedAnswer);
     sessionStorage.setItem("dropdownUserSelectedAnswer", dropdownUserSelectedAnswer);
     sessionStorage.setItem("FILLUserSelectedAnswer", fillInTheBlankBLANK.value);
-    console.log(sessionStorage.getItem("FILLUserSelectedAnswer"));
 
     window.location.href = "Thanks.html";
 }
@@ -228,8 +225,6 @@ function pickRandomQuestions() {
     while (true) {
         MCQQuestionOneRandInt = Math.floor((Math.random() * questionsMCQ.length));
         MCQQuestionTwoRandInt = Math.floor((Math.random() * questionsMCQ.length));
-        console.log(questionsMCQ[MCQQuestionOneRandInt]);
-        console.log(questionsMCQ[MCQQuestionTwoRandInt]);
         if (MCQQuestionOneRandInt != MCQQuestionTwoRandInt) {
             break;
         }

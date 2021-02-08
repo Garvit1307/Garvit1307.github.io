@@ -92,76 +92,36 @@ function Start() {
     DROPAnswer = sessionStorage.getItem("dropdownUserSelectedAnswer");
     FILLAnswer = sessionStorage.getItem("FILLUserSelectedAnswer");
 
-    console.log("MCQ ONE ANSWER = " + MCQAnswerOne);
-    console.log("MCQ TWO ANSWER = " + MCQAnswerTwo);
-    console.log("TF ANSWER = " + TFAnswer);
-    console.log("DROP ANSWER = " + DROPAnswer);
-    console.log("FILL ANSWER = " + FILLAnswer);
-
     if (MCQAnswerOne != -1) {
         if (MCQQuestionOne['answers'][MCQAnswerOne]['correct']) {
-            console.log("MCQ IS CORRECT POGGG");
             correctQuestions++;
             MCQAnswerOneIsCorrect = true;
         }
-        else {
-            console.log("MCQ IS WRONG NOOOO")
-        }
-    }
-    else {
-        console.log("NO ANSWER FOR MCQ!!! WHY");
     }
     if (MCQAnswerTwo != -1) {
         if (MCQQuestionTwo['answers'][MCQAnswerTwo]['correct']) {
-            console.log("MCQ2 IS CORRECT POGGG");
             MCQAnswerTwoIsCorrect = true;
             correctQuestions++;
         }
-        else {
-            console.log("MCQ2 IS WRONG NOOOO")
-        }
-    }
-    else {
-        console.log("NO ANSWER FOR MCQ2!!! WHY");
     }
     if (TFAnswer != -1) {
         if (TFQuestion['answers'][TFAnswer]['correct']) {
-            console.log("TF IS CORRECT POGGG");
             TFAnswerIsCorrect = true;
             correctQuestions++;
-        } else {
-            console.log("TF IS WRONG NOOOO")
         }
-    }
-    else {
-        console.log("NO ANSWER FOR TF!!! WHY");
     }
     if (DROPAnswer != -1) {
         if (DROPQuestion['answers'][DROPAnswer]['correct']) {
-            console.log("DROP IS CORRECT POGGG");
             DROPAnswerIsCorrect = true;
             correctQuestions++;
         }
-        else {
-            console.log("DROP IS WRONG NOOOO");
-        }
-    }
-    else {
-        console.log("NO ANSWER FOR DROP!!! WHY");
     }
 
     if (FILLAnswer != -1) {
         if (FILLQuestion["answers"][0]["text"].toLowerCase().replace(" ", "") == FILLAnswer.toLowerCase().replace(" ", "")) {
-            console.log("FILL IS CORRECT POGGG");
             FILLAnswerIsCorrect = true;
             correctQuestions++;
         }
-        else {
-            console.log("FILL IS WRONG NOOOO");
-        }
-    }
-    else {
-        console.log("NO ANSWER FOR FILL!!! WHY");
     }
 
 
@@ -289,4 +249,4 @@ function generatePDF() {
     html2pdf()
       .from(element)
       .save();
-  }
+}
