@@ -74,8 +74,8 @@ header:after{
 
 .sky{
     position: absolute;
-    width: 2100px;
-    bottom: 250px;
+    width: 100vw;
+    height: 100vh;
     right: 0;
 }
 
