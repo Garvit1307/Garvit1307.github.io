@@ -125,7 +125,7 @@ function Start() {
     }
 
 
-    if (localStorage.getItem("highestScore") == null || correctQuestions > localStorage.getItem("highestScore")){
+    if (localStorage.getItem("highestScore") == null || correctQuestions > localStorage.getItem("highestScore")) {
         localStorage.setItem("highestScore", correctQuestions);
     }
 
@@ -240,13 +240,5 @@ function Start() {
 }
 
 function download() {
-    generatePDF();
-}
-function generatePDF() {
-    // Choose the element that our invoice is rendered in.
-    const element = document.getElementById("content");
-    // Choose the element and save the PDF for our user.
-    html2pdf()
-      .from(element)
-      .save();
+
 }
