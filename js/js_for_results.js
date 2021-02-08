@@ -80,6 +80,8 @@ window.addEventListener('scroll', () => {
 
 
 function Start() {
+    doc = new jsPDF();
+
     MCQQuestionOne = questionsMCQ[sessionStorage.getItem("MCQQuestionOne")];
     MCQQuestionTwo = questionsMCQ[sessionStorage.getItem("MCQQuestionTwo")];
     TFQuestion = questionsTF[sessionStorage.getItem("TFQuestion")];
@@ -157,14 +159,14 @@ function Start() {
     questionOneQueArea.innerHTML = MCQQuestionOne["question"];
 
 
-    if (MCQAnswerOneIsCorrect){
+    if (MCQAnswerOneIsCorrect) {
         questionOneNumberArea.innerHTML += "✔️";
     }
-    else{
+    else {
         questionOneNumberArea.innerHTML += "❌";
     }
     questionOneQueArea.innerHTML = MCQQuestionOne["question"];
-    if (MCQQuestionOne["answers"][MCQAnswerOne]){
+    if (MCQQuestionOne["answers"][MCQAnswerOne]) {
         questionOneYourAnswerArea.innerHTML += MCQQuestionOne["answers"][MCQAnswerOne]["text"];
     }
     else {
@@ -172,20 +174,20 @@ function Start() {
     }
     for (let index = 0; index < MCQQuestionOne["answers"].length; index++) {
         const element = MCQQuestionOne["answers"][index];
-        if (element["correct"]){
+        if (element["correct"]) {
             questionOneCorrectAnswerArea.innerHTML += element["text"];
         }
     }
 
 
-    if (TFAnswerIsCorrect){
+    if (TFAnswerIsCorrect) {
         questionTwoNumberArea.innerHTML += "✔️";
     }
-    else{
+    else {
         questionTwoNumberArea.innerHTML += "❌";
     }
     questionTwoQueArea.innerHTML = TFQuestion["question"];
-    if (MCQQuestionOne["answers"][TFAnswer]){
+    if (MCQQuestionOne["answers"][TFAnswer]) {
         questionTwoYourAnswerArea.innerHTML += TFQuestion["answers"][TFAnswer]["text"];
     }
     else {
@@ -193,19 +195,19 @@ function Start() {
     }
     for (let index = 0; index < TFQuestion["answers"].length; index++) {
         const element = TFQuestion["answers"][index];
-        if (element["correct"]){
+        if (element["correct"]) {
             questionTwoCorrectAnswerArea.innerHTML += element["text"];
         }
     }
 
-    if (DROPAnswerIsCorrect){
+    if (DROPAnswerIsCorrect) {
         questionThreeNumberArea.innerHTML += "✔️";
     }
-    else{
+    else {
         questionThreeNumberArea.innerHTML += "❌";
     }
     questionThreeQueArea.innerHTML = DROPQuestion["question"];
-    if (DROPQuestion["answers"][DROPAnswer]){
+    if (DROPQuestion["answers"][DROPAnswer]) {
         questionThreeYourAnswerArea.innerHTML += DROPQuestion["answers"][DROPAnswer]["text"];
     }
     else {
@@ -213,19 +215,19 @@ function Start() {
     }
     for (let index = 0; index < DROPQuestion["answers"].length; index++) {
         const element = DROPQuestion["answers"][index];
-        if (element["correct"]){
+        if (element["correct"]) {
             questionThreeCorrectAnswerArea.innerHTML += element["text"];
         }
     }
 
-    if (FILLAnswerIsCorrect){
+    if (FILLAnswerIsCorrect) {
         questionFourNumberArea.innerHTML += "✔️";
     }
-    else{
+    else {
         questionFourNumberArea.innerHTML += "❌";
     }
     questionFourQueArea.innerHTML = FILLQuestion["question"];
-    if (FILLQuestion["answers"][FILLAnswer]){
+    if (FILLQuestion["answers"][FILLAnswer]) {
         questionFourYourAnswerArea.innerHTML += FILLQuestion["answers"][FILLAnswer]["text"];
     }
     else {
@@ -233,19 +235,19 @@ function Start() {
     }
     for (let index = 0; index < FILLQuestion["answers"].length; index++) {
         const element = FILLQuestion["answers"][index];
-        if (element["correct"]){
+        if (element["correct"]) {
             questionFourCorrectAnswerArea.innerHTML += element["text"];
         }
     }
 
-    if (MCQAnswerTwoIsCorrect){
+    if (MCQAnswerTwoIsCorrect) {
         questionFiveNumberArea.innerHTML += "✔️";
     }
-    else{
+    else {
         questionFiveNumberArea.innerHTML += "❌";
     }
     questionFiveQueArea.innerHTML = MCQQuestionTwo["question"];
-    if (MCQQuestionTwo["answers"][MCQAnswerTwo]){
+    if (MCQQuestionTwo["answers"][MCQAnswerTwo]) {
         questionFiveYourAnswerArea.innerHTML += MCQQuestionTwo["answers"][MCQAnswerTwo]["text"];
     }
     else {
@@ -253,8 +255,12 @@ function Start() {
     }
     for (let index = 0; index < MCQQuestionTwo["answers"].length; index++) {
         const element = MCQQuestionTwo["answers"][index];
-        if (element["correct"]){
+        if (element["correct"]) {
             questionFiveCorrectAnswerArea.innerHTML += element["text"];
         }
     }
 }
+
+function download() {
+}
+
