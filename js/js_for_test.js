@@ -2,7 +2,7 @@ var myTimer = 0;
 var secondsPassed = 0;
 var minutesPassed = 0;
 var hoursPassed = 0;
-var totalTimePassed = 0;
+var totalSecondsPassed = 0;
 var timerText = document.getElementById("timerText");
 var textToShow = "";
 var correctQuestions = 0;
@@ -57,7 +57,7 @@ function Tick() {
     textToShow = "";
 
     secondsPassed++;
-    totalTimePassed++;
+    totalSecondsPassed++;
 
     if (secondsPassed >= 60) {
         secondsPassed = 0;
@@ -196,6 +196,16 @@ function dropdownOptionClicked(index) {
 
 function submit() {
     sessionStorage.setItem("timeTaken", timerText.innerHTML);
+
+
+    if (localStorage.getItem("bestTime") == null){
+        localStorage.setItem("bestTime", timerText.innerHTML);
+        localStorage.setItem("bestTimeInSeconds", totalSecondsPassed);
+    } 
+    else if (totalSecondsPassed < localStorage.getItem("bestTimeInSeconds")){
+        localStorage.setItem("bestTime", timerText.innerHTML);
+        localStorage.setItem("bestTimeInSeconds", totalSecondsPassed);
+    }
 
     sessionStorage.setItem("MCQQuestionOne", MCQQuestionOneRandInt);
     sessionStorage.setItem("MCQQuestionTwo", MCQQuestionTwoRandInt);
