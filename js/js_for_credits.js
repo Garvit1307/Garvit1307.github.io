@@ -22,7 +22,6 @@ window.addEventListener('scroll', () => {
     opacity.forEach(element => {
         element.style.opacity = scroll / (sectionY.top + section_height);
     })
-
+ 
     big_title.style.opacity = - scroll / (header_height / 2) + 1;
-
 })
