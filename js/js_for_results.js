@@ -239,14 +239,11 @@ function Start() {
     }
 }
 
-function download() {
-    generatePDF();
-}
-function generatePDF() {
-    // Choose the element that our invoice is rendered in.
-    const element = document.getElementById("content");
-    // Choose the element and save the PDF for our user.
-    html2pdf()
-      .from(element)
-      .save();
+function printContent(el){
+    var restorepage = document.body.innerHTML;
+    var printcontent = document.getElementById(el).innerHTML;
+    document.body.innerHTML = printcontent;
+    window.print();
+    document.body.innerHTML = restorepage;
+
 }

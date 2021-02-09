@@ -57,6 +57,7 @@
     </header>
 
     <section>
+        <div id="div1"> <!-- This is where the selected portion for printing starts! -->
         <div class="shadow"></div>
 
         <div class="container" style="align-items:unset;">
@@ -149,9 +150,8 @@
                 </div>
             </div>
         </div>
-        <button id="downloadButton" class="btn btn-dark" onclick="download();">
-            Download Results
-        </button>
+    </div>
+        <button id="downloadButton" class="btn btn-dark" onclick="printContent('div1')">Print Content</button>
     </section>
 
     <style>
