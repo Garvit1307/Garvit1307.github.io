@@ -194,6 +194,7 @@ function dropdownOptionClicked(index) {
 
 function submit() {
     sessionStorage.setItem("timeTaken", timerText.innerHTML);
+    
 
 
     if (localStorage.getItem("bestTime") == null){
