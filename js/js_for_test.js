@@ -193,6 +193,11 @@ function dropdownOptionClicked(index) {
 }
 
 function submit() {
+
+    localStorage.clear();
+    sessionStorage.clear();
+
+    
     sessionStorage.setItem("timeTaken", timerText.innerHTML);
 
 
