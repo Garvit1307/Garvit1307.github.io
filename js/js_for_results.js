@@ -210,7 +210,7 @@ function Start() {
         questionFourNumberArea.innerHTML += "❌";
     }
     questionFourQueArea.innerHTML = FILLQuestion["question"];
-    if (FILLAnswer != -1) {
+    if (FILLAnswer != "") {
         questionFourYourAnswerArea.innerHTML += FILLAnswer;
     }
     else {
