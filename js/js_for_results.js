@@ -12,6 +12,7 @@ var scoreText = document.getElementById("scoreText");
 var timeText = document.getElementById("timeText");
 var bestTimeText = document.getElementById("bestTimeText");
 var bestScoreText = document.getElementById("bestScoreText");
+var newBestTimeText = document.getElementById("newBestTimeText");
 
 var questionOneNumberArea = document.getElementById("questionOneNumberArea");
 var questionOneQueArea = document.getElementById("questionOneQueArea");
@@ -128,12 +129,16 @@ function Start() {
     if (localStorage.getItem("highestScore") == null || correctQuestions > localStorage.getItem("highestScore")) {
         localStorage.setItem("highestScore", correctQuestions);
     }
-
-
     scoreText.innerHTML = "Your Score: " + correctQuestions * 20;
     timeText.innerHTML = "Time Taken: " + sessionStorage.getItem("timeTaken");
     bestTimeText.innerHTML = "Best Time: " + localStorage.getItem("bestTime");
     bestScoreText.innerHTML = "Best Score: " + localStorage.getItem("highestScore") * 20;
+    if (sessionStorage.getItem("newBestTime")){
+        newBestTimeText.style.visibility = "visible";
+    }
+    else{
+        newBestTimeText.style.visibility = "hidden";
+    }
     questionOneQueArea.innerHTML = MCQQuestionOne["question"];
 
 
@@ -245,5 +250,5 @@ function printContent(el){
     document.body.innerHTML = printcontent;
     window.print();
     document.body.innerHTML = restorepage;
-
+    location.reload();
 }

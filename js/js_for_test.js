@@ -203,6 +203,7 @@ function submit() {
     else if (totalSecondsPassed < localStorage.getItem("bestTimeInSeconds")){
         localStorage.setItem("bestTime", timerText.innerHTML);
         localStorage.setItem("bestTimeInSeconds", totalSecondsPassed);
+        sessionStorage.setItem("newBestTime", true);
     }
 
     sessionStorage.setItem("MCQQuestionOne", MCQQuestionOneRandInt);
