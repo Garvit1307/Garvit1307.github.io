@@ -34,7 +34,7 @@ window.addEventListener('scroll', () => {
 window.onload = Start;
 
 
-var cardTemplate = "<div class='card'> <img class='card__image' src='../img/{{IMAGE}}' alt='yellow'> <p class='card_text'>{{QUESTION}}</p> <div class='card__content'> <p>Answer: {{ANSWER}}</p> </div> <div class='card__info'> <div> </div> <div> <a href='' class='card__link'>.</a> </div> </div> </div>";
+var cardTemplate = "<div class='card'> <img class='card__image' src='../img/{{COLOR}}.png' alt='yellow'> <p class='card_text'>{{QUESTION}}</p> <div class='card__content'> <p>Answer: {{ANSWER}}</p> </div> <div class='card__info'> <div> </div> <div> <a href='' class='card__link'>.</a> </div> </div> </div>";
 
 function Start() {
 
@@ -42,7 +42,7 @@ function Start() {
     for (let index = 0; index < questionsMCQ.length; index++) {
         const element = questionsMCQ[index];
         var card = cardTemplate;
-        card = card.replace("{{IMAGE}}", "yellow.png");
+        card = card.replace("{{COLOR}}", "yellow");
         card = card.replace("{{QUESTION}}", element["question"]);
         for (let index2 = 0; index2 < element["answers"].length; index2++) {
             const element2 = element["answers"][index2];
@@ -56,7 +56,7 @@ function Start() {
     for (let index = 0; index < questionsTF.length; index++) {
         const element = questionsTF[index];
         var card = cardTemplate;
-        card = card.replace("{{IMAGE}}", "blue.png");
+        card = card.replace("{{COLOR}}", "blue");
         card = card.replace("{{QUESTION}}", element["question"]);
         for (let index2 = 0; index2 < element["answers"].length; index2++) {
             const element2 = element["answers"][index2];
@@ -70,7 +70,7 @@ function Start() {
     for (let index = 0; index < questionsDropdown.length; index++) {
         const element = questionsDropdown[index];
         var card = cardTemplate;
-        card = card.replace("{{IMAGE}}", "green.png");
+        card = card.replace("{{COLOR}}", "green");
         card = card.replace("{{QUESTION}}", element["question"]);
         for (let index2 = 0; index2 < element["answers"].length; index2++) {
             const element2 = element["answers"][index2];
@@ -84,7 +84,7 @@ function Start() {
     for (let index = 0; index < questionsFill.length; index++) {
         const element = questionsFill[index];
         var card = cardTemplate;
-        card = card.replace("{{IMAGE}}", "red.png");
+        card = card.replace("{{COLOR}}", "red");
         card = card.replace("{{QUESTION}}", element["question"]);
         for (let index2 = 0; index2 < element["answers"].length; index2++) {
             const element2 = element["answers"][index2];
