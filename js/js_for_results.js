@@ -125,19 +125,25 @@ function Start() {
     }
 
 
-    if (localStorage.getItem("highestScore") == null || correctQuestions > localStorage.getItem("highestScore")) {
+    if (localStorage.getItem("highestScore") == null) {
+        localStorage.setItem("highestScore", correctQuestions);
+    }
+
+    else if (correctQuestions > localStorage.getItem("highestScore")) {
         localStorage.setItem("highestScore", correctQuestions);
     }
     scoreText.innerHTML = "Your Score: " + correctQuestions * 20;
     timeText.innerHTML = "Time Taken: " + sessionStorage.getItem("timeTaken");
     bestTimeText.innerHTML = "Best Time: " + localStorage.getItem("bestTime");
     bestScoreText.innerHTML = "Best Score: " + localStorage.getItem("highestScore") * 20;
-    if (sessionStorage.getItem("newBestTime")){
+
+    if (sessionStorage.getItem("newBestTime")) {
         newBestTimeText.style.visibility = "visible";
     }
-    else{
+    else {
         newBestTimeText.style.visibility = "hidden";
     }
+
     questionOneQueArea.innerHTML = MCQQuestionOne["question"];
 
 
@@ -243,12 +249,22 @@ function Start() {
     }
 }
 
-function printContent(el){
+function printContent(el) {
     var restorepage = document.body.innerHTML;
     var printcontent = document.getElementById(el).innerHTML;
     document.body.innerHTML = printcontent;
     window.print();
     document.body.innerHTML = restorepage;
     location.reload();
+}
+
+function clearHistory() {
+    var x = confirm("This will clear your best time and best score as well as you current test results...\nPrinting the results is recommended before clearing...\nDo you wish to continue?");
+    if (x) {
+        sessionStorage.clear();
+        localStorage.clear();
+        window.location.href = "Home.html";
+        alert("Your history was cleared!!!");
+    }
 }
 

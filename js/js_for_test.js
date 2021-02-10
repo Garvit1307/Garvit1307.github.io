@@ -194,6 +194,7 @@ function dropdownOptionClicked(index) {
 
 function submit() {
 
+    sessionStorage.clear();
 
     sessionStorage.setItem("timeTaken", timerText.innerHTML);
     
