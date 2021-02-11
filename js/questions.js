@@ -232,7 +232,7 @@ const questionsDropdown = [
     ]
   },
   {
-    question: 'What is the name of the publication that each local chapter receives that contains all the information about FBLA—national constitution and bylaws, national programs, national organization, etc.?',
+    question: 'The name of the publication that local chapters receive. Contains all information about FBLA—national constitution, bylaws, national programs, national organization, etc.?',
     answers: [
       { text: 'FBLA Management Guidelines', correct: false },
       { text: 'Chapter Management Handbook', correct: true }
